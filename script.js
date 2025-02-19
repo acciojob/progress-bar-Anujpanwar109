@@ -5,23 +5,39 @@ let nBtn=document.querySelector("#next");
 let pBtn=document.querySelector("#prev");
 
 let countB=0;
+pBtn.disabled = true;
 
 nBtn.addEventListener("click",()=>{
 	 
-	circles[countB+1].style.background="#9883e5"
-	bars[countB].style.background="#9883e5"
-		if(countB<bars.length-1 ){
-	
-	     countB++
-	}	 
+	if (countB < circles.length - 1) {
+    countB++;
+    circles[countB].classList.add("active");
+    bars[countB - 1].classList.add("active");
+  }
+
+  
+  pBtn.disabled = false;
+
+  
+  if (countB === circles.length - 1) {
+    nBtn.disabled = true;
+  }
+});
+pBtn.addEventListener("click", () => {
+  if (countB > 0) {
+    
+    circles[countB].classList.remove("active");
+    bars[countB - 1].classList.remove("active");
+    countB--;
+  }
+
+
+  nBtn.disabled = false;
+
+
+  if (countB === 0) {
+    pBtn.disabled = true;
+  }
 });
 
-pBtn.addEventListener("click",()=>{ 
-	circles[countB+1].style.background="none"
-	bars[countB].style.background="none"
-		if(countB>0 ){ 
-	
-	countB--
-	}
-})
 

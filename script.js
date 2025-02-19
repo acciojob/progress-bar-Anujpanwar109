@@ -4,6 +4,7 @@ let bars=document.querySelectorAll(".bar");
 let nBtn=document.querySelector("#next"); 
 let pBtn=document.querySelector("#prev");
 
+circles[0].classList.add("active");
 let countB=0;
 pBtn.disabled = true;
 
